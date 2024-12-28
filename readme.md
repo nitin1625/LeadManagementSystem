@@ -873,4 +873,3 @@ This module provides insights into the performance of leads and accounts, includ
    - Highlights restaurants needing additional attention or intervention.
    - Targets accounts with low revenue and engagement levels.
 
-This module equips account managers with critical performance metrics, helping prioritize actions and improve decision-making. Let me know if you’d like further enhancements! 🚀
