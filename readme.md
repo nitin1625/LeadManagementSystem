@@ -539,7 +539,7 @@ GET /track/interactions/1/
    - Deletes an order.
 
 ```
-
+```
 ## Call Planning
  endpoints supporting the creation, retrieval, updating, and deletion of call plans. Here's a concise summary of its key functionalities:
 
@@ -562,14 +562,12 @@ GET /track/interactions/1/
 5. **Deletion of Plans**:
    - Cleanly remove any outdated or unnecessary call plans.
 
----
 
 ### **Efficiency Features**
 - **Next Call Logic**: Automatically calculates the next call date based on frequency.
 - **Today’s Calls**: Quickly retrieve all calls due for today, ensuring high-priority actions are not missed.
 
----
-
+```
 ### **API Highlights**
 
 
