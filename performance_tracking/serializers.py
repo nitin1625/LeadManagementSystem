@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import  Order
+from interaction_tracking.models import Order
 from leads.models import Restaurant
 
 class RestaurantSerializer(serializers.ModelSerializer):

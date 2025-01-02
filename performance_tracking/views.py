@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Restaurant, Order
+from leads.models import Restaurant
+from interaction_tracking.models import Order
 from .serializers import RestaurantSerializer
 from django.db.models import Sum, Count
 from datetime import timedelta
@@ -8,9 +9,7 @@ from django.utils import timezone
 
 
 class PerformingAccountsView(APIView):
-    """
-    Fetch all restaurant accounts that are performing well based on their lead status and potential revenue.
-    """
+
     def get(self, request):
         # Fetch well-performing accounts (e.g., those with a 'CONVERTED' status and potential revenue >= 10000)
         accounts = Restaurant.objects.filter(lead_status='CONVERTED', potential_revenue__gte=10000)

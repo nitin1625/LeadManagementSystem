@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Interaction
+from .models import Interaction , Order
 from leads.models import Restaurant  # Lead model
 from contact.models import Contact  # Contact model
 
@@ -12,3 +12,16 @@ class InteractionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Interaction
         fields = ['id', 'lead', 'contact', 'interaction_type', 'details', 'order_placed', 'date']
+
+class OrderSerializer(serializers.ModelSerializer):
+    restaurant= serializers.PrimaryKeyRelatedField(queryset=Restaurant.objects.all())
+    class Meta:
+        model = Order
+        fields = [
+            'id', 
+            'restaurant', 
+            'order_date', 
+            'amount',
+           
+        ]
+       

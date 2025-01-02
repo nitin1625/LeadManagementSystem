@@ -77,8 +77,7 @@ class RestaurantViewSet(viewsets.ModelViewSet):
     def status_history(self, request, pk=None):
         """Retrieve the status history of a specific restaurant"""
         restaurant = self.get_object()
-        status_history = restaurant.status_history.all()  # Fetch related status history
-        # You can create a serializer for LeadStatusHistory if needed, or return raw data
+        status_history = restaurant.status_history.all() 
         history_data = [
             {
                 'old_status': history.old_status,

@@ -14,7 +14,7 @@ class CallPlanViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
 
         frequency = request.data.get('frequency')
-        lead_id = request.data.get('lead')  # Assuming you pass the lead ID in the request
+        lead_id = request.data.get('lead') 
 
         try:
             lead = Restaurant.objects.get(id=lead_id)
@@ -36,7 +36,7 @@ class CallPlanViewSet(viewsets.ModelViewSet):
             lead=lead,
             frequency=frequency,
             next_call_date=next_call_date,
-            last_called=None,  # No call made yet
+            last_called=None, 
             notes=request.data.get('notes', '')
         )
 
@@ -59,8 +59,8 @@ class CallPlanViewSet(viewsets.ModelViewSet):
         Track the last call made and update next call date.
         """
         call_plan = self.get_object()
-        call_plan.last_called = timezone.now()  # Update the last called time
-        call_plan.update_next_call()  # Update the next call date based on frequency
+        call_plan.last_called = timezone.now()  
+        call_plan.update_next_call()  
         serializer = self.get_serializer(call_plan)
         return Response(serializer.data)
 

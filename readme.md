@@ -507,42 +507,37 @@ GET /track/interactions/1/
 
 ### **Order-Specific APIs**
 
-#### **6. List Order-Specific Interactions**
-**Endpoint**: `GET /track/interactions/orders/`  
-**Purpose**: Retrieve interactions where orders were placed (`order_placed=true`).
 
-**Filters**:
-- `?lead=<lead_id>`: Filter by a specific lead.
+6. **POST `/track/orders/`**
+   - Request Body:
+     ```json
+     {
+         "lead": 1, 
+         "amount": 200.00
+     }
+     ```
+   - Response:
+     ```json
+     {
+         "id": 1,
+         "lead": 1,
+         "amount": "200.00",
+         "order_date": "2025-01-01T12:00:00Z"
+     }
+     ```
 
-**Example Response**:
-```json
-[
-    {
-        "id": 3,
-        "lead": 2,
-        "contact": 5,
-        "interaction_type": "ORDER",
-        "details": "Placed an order for 50 units of product A.",
-        "order_placed": true,
-        "date": "2024-12-25T12:00:00Z"
-    }
-]
-```
+7. **GET `/track/orders/`**
+   - Lists all orders.
 
----
+8. **GET `/track/orders/{id}/`**
+   - Retrieves a specific order by ID.
 
-#### **7. Retrieve Order Details**
-**Endpoint**: `GET /track/interactions/<interaction_id>/order_details/`  
-**Purpose**: Fetch detailed order information linked to an interaction.  
+9. **PUT `/track/orders/{id}/`**
+   - Updates an existing order.
 
-**Example Response**:
-```json
-{
-    "product_details": "50 units of Product A",
-    "quantity": 50,
-    "total_price": 500.00,
-    "order_date": "2024-12-25T12:00:00Z"
-}
+10. **DELETE `/track/orders/{id}/`**
+   - Deletes an order.
+
 ```
 
 ## Call Planning
@@ -854,9 +849,9 @@ This module provides insights into the performance of leads and accounts, includ
 
 | **Endpoint**                               | **Method** | **Purpose**                                          |
 |--------------------------------------------|------------|------------------------------------------------------|
-| `/performance/performing-accounts/`        | `GET`      | Track well-performing accounts based on revenue.    |
-| `/performance/order-patterns/`             | `GET`      | Monitor ordering patterns and frequency.            |
-| `/performance/underperforming-accounts/`   | `GET`      | Identify underperforming accounts.                  |
+| `/performance/well/`        | `GET`      | Track well-performing accounts based on revenue.    |
+| `/performance/order_patterns/`             | `GET`      | Monitor ordering patterns and frequency.            |
+| `/performance/under/`   | `GET`      | Identify underperforming accounts.                  |
 
 ---
 
